@@ -14,12 +14,12 @@ function App() {
     setAccountURL({ ...accountURL, [event.target.name]: event.target.value });
   }
 
-  const openInNewTab = (url) => {
+  const openInNewTab = (url: string | URL | undefined) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
   };
 
-  const onClickUrl = (url) => {
+  const onClickUrl = (url: string | URL | undefined) => {
     return () => openInNewTab(url);
   };
 
@@ -63,7 +63,7 @@ function App() {
           color="pinkPurple"
           m="sm"
           onClick={onClickUrl(
-            accountURL.name + "detail/recent-activity/shares/"
+            accountURL.name + "/detail/recent-activity/shares/"
           )}
         >
           {" "}
